@@ -1,0 +1,16 @@
+{
+    "rules": [
+        "descriptions-are-capitalized",
+        "enum-values-all-caps",
+        "fields-are-camel-cased",
+        "fields-have-descriptions",
+        "types-have-descriptions",
+        "defined-types-are-used",
+        "deprecations-have-a-reason",
+        "input-object-fields-sorted-alphabetically",
+        "interface-fields-sorted-alphabetically",
+        "type-fields-sorted-alphabetically",
+        "types-are-capitalized",
+        "enum-values-sorted-alphabetically"
+    ]
+}
