@@ -46269,14 +46269,13 @@ const path = __nccwpck_require__(1017);
 const fs = __nccwpck_require__(7147);
 
 function lintSchemas(schemas) {
-    // We have to join '..' since we are located at dist/index.js
     console.log(fs.readdirSync(__dirname));
     console.log(fs.readdirSync(path.join(__dirname, '..')));
     console.log(__dirname)
-    schemas = schemas.map(schema => path.join('..', schema))
     const args = [
         null,
-        __dirname,
+        // We have to join '..' since we are located at dist/index.js
+        path.join(__dirname, '..'),
         ...schemas
     ];
     console.log('Linting schemas: ', schemas.join())
