@@ -14,7 +14,7 @@ function lintSchemas(schemas) {
 
 async function main() {
     const payload = JSON.stringify(github.context.payload, undefined, 2)
-    console.log(`The event payload: ${payload}`);
+    console.log(process.argv)
     try {
         const schemaFiles = core.getInput('files').split(',');
         const combined = core.getInput('combined');
