@@ -46265,17 +46265,11 @@ var __webpack_exports__ = {};
 const core = __nccwpck_require__(2186);
 const github = __nccwpck_require__(5438);
 const { runner } = __nccwpck_require__(3106);
-const path = __nccwpck_require__(1017);
-const fs = __nccwpck_require__(7147);
 
 function lintSchemas(schemas) {
-    console.log(fs.readdirSync(__dirname));
-    console.log(fs.readdirSync(path.join(__dirname, '..')));
-    console.log(__dirname)
     const args = [
         null,
-        // We have to join '..' since we are located at dist/index.js
-        path.join(__dirname, '..'),
+        __dirname,
         ...schemas
     ];
     console.log('Linting schemas: ', schemas.join())

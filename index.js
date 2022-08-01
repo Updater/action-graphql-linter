@@ -1,17 +1,11 @@
 const core = require('@actions/core');
 const github = require('@actions/github');
 const { runner } = require('graphql-schema-linter');
-const path = require('path');
-const fs = require('fs');
 
 function lintSchemas(schemas) {
-    console.log(fs.readdirSync(__dirname));
-    console.log(fs.readdirSync(path.join(__dirname, '..')));
-    console.log(__dirname)
     const args = [
         null,
-        // We have to join '..' since we are located at dist/index.js
-        path.join(__dirname, '..'),
+        __dirname,
         ...schemas
     ];
     console.log('Linting schemas: ', schemas.join())
