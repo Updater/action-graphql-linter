@@ -1,12 +1,19 @@
 const core = require('@actions/core');
 const github = require('@actions/github');
 const { runner } = require('graphql-schema-linter');
+const path = require('path');
 
 function lintSchemas(schemas) {
-    const args = [null, __dirname, ...schemas];
-    console.log("Linting schemas: ", schemas.join())
+    const args = [
+        null,
+        __dirname,
+        // We have to join '..' since we are located at dist/index.js
+        ...schemas.map(schema => path.join('..', schema))
+    ];
+    console.log('Linting schemas: ', schemas.join())
     return runner.run(process.stdout, process.stdin, process.stderr, args)
 }
+
 async function main() {
     const payload = JSON.stringify(github.context.payload, undefined, 2)
     console.log(`The event payload: ${payload}`);
@@ -31,4 +38,5 @@ async function main() {
         core.setFailed(error.message);
     }
 }
+
 main();
