@@ -9,7 +9,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - uses: Updater/action-graphql-linter@tmp/test-github-action
+      - uses: Updater/action-graphql-linter@main
         with:
           files: 'schema.graphql'
-          combined: 'false'
+          # combined: 'false'
