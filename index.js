@@ -8,6 +8,7 @@ function lintSchemas(schemas) {
     // We have to join '..' since we are located at dist/index.js
     console.log(fs.readdirSync(__dirname));
     console.log(fs.readdirSync(path.join(__dirname, '..')));
+    console.log(__dirname)
     schemas = schemas.map(schema => path.join('..', schema))
     const args = [
         null,
