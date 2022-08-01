@@ -1,0 +1,9 @@
+name: 'GraphQL Linter'
+description: 'Lints the given GraphQL schemas'
+inputs:
+  files:
+    description: 'Files to lint'
+    required: true
+runs:
+  using: 'node16'
+  main: 'index.js'
