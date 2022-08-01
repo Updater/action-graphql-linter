@@ -4,11 +4,12 @@ const { runner } = require('graphql-schema-linter');
 const path = require('path');
 
 function lintSchemas(schemas) {
+    // We have to join '..' since we are located at dist/index.js
+    schemas = schemas.map(schema => path.join('..', schema))
     const args = [
         null,
         __dirname,
-        // We have to join '..' since we are located at dist/index.js
-        ...schemas.map(schema => path.join('..', schema))
+        ...schemas
     ];
     console.log('Linting schemas: ', schemas.join())
     return runner.run(process.stdout, process.stdin, process.stderr, args)
