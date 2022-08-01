@@ -46265,12 +46265,23 @@ var __webpack_exports__ = {};
 const core = __nccwpck_require__(2186);
 const github = __nccwpck_require__(5438);
 const { runner } = __nccwpck_require__(3106);
+const path = __nccwpck_require__(1017);
+const fs = __nccwpck_require__(7147);
 
 function lintSchemas(schemas) {
-    const args = [null, __dirname, ...schemas];
-    console.log("Linting schemas: ", schemas.join())
+    // We have to join '..' since we are located at dist/index.js
+    console.log(fs.readdirSync(__dirname));
+    console.log(fs.readdirSync(path.join('..', __dirname)));
+    schemas = schemas.map(schema => path.join('..', schema))
+    const args = [
+        null,
+        __dirname,
+        ...schemas
+    ];
+    console.log('Linting schemas: ', schemas.join())
     return runner.run(process.stdout, process.stdin, process.stderr, args)
 }
+
 async function main() {
     const payload = JSON.stringify(github.context.payload, undefined, 2)
     console.log(`The event payload: ${payload}`);
@@ -46295,6 +46306,7 @@ async function main() {
         core.setFailed(error.message);
     }
 }
+
 main();
 
 })();
