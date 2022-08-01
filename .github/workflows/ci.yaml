@@ -12,4 +12,4 @@ jobs:
       - uses: Updater/action-graphql-linter@tmp/test-github-action
         with:
           files: 'schema.graphql'
-          # combined: 'false'
+          combined: 'false'

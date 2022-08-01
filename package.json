@@ -10,8 +10,12 @@
     "graphql-schema-linter": "^3.0.1"
   },
   "description": "This action lints the GraphQL Schemas sent in the input.",
-  "devDependencies": {},
-  "scripts": {},
+  "devDependencies": {
+    "@vercel/ncc": "^0.34.0"
+  },
+  "scripts": {
+    "compile":"ncc build index.js --license licences.txt"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Updater/action-graphql-linter.git"
