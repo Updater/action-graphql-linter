@@ -14,7 +14,7 @@ async function main() {
         const schemaFiles = core.getInput('files').split(',');
         const combined = core.getInput('combined');
 
-        if (combined) {
+        if (combined.toLowerCase() === 'true') {
             const exitCode = await lintSchemas(schemaFiles);
             if (exitCode !== 0) {
                 throw new Error(`Invalid Schemas ${schemas}`);

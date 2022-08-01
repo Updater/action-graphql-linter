@@ -1,0 +1,15 @@
+name: ci
+
+on: push
+
+jobs:
+  lint-gql:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: https://github.com/Updater/action-graphql-linter
+        with:
+          files: 'schema.graphql'
+          combined: 'false'

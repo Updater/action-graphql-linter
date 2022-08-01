@@ -4,6 +4,10 @@ inputs:
   files:
     description: 'Files to lint'
     required: true
+  combined:
+    description: 'Should it combine the schemas before linting'
+    required: false
+    default: 'false'
 runs:
   using: 'node16'
   main: 'index.js'
