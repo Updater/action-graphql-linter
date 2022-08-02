@@ -1,5 +1,7 @@
 const core = require('@actions/core');
 const { runner } = require('graphql-schema-linter');
+const fs = require('fs');
+const path = require('path');
 
 function lintSchemas(schemas) {
     const args = [
@@ -8,6 +10,16 @@ function lintSchemas(schemas) {
         `-c ${__dirname}/.graphql-schema-linterrc`,
         ...schemas
     ];
+    console.log(
+        fs.readdirSync(
+            path.join(__dirname)
+        )
+    );
+    console.log(
+        fs.readFileSync(
+            path.join(__dirname,'.graphql-schema-linterrc')
+        ).toString()
+    );
     return runner.run(process.stdout, process.stdin, process.stderr, args)
 }
 

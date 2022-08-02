@@ -39491,6 +39491,8 @@ var __webpack_exports__ = {};
 (() => {
 const core = __nccwpck_require__(2186);
 const { runner } = __nccwpck_require__(3106);
+const fs = __nccwpck_require__(7147);
+const path = __nccwpck_require__(1017);
 
 function lintSchemas(schemas) {
     const args = [
@@ -39499,6 +39501,16 @@ function lintSchemas(schemas) {
         `-c ${__dirname}/.graphql-schema-linterrc`,
         ...schemas
     ];
+    console.log(
+        fs.readdirSync(
+            path.join(__dirname)
+        )
+    );
+    console.log(
+        fs.readFileSync(
+            __nccwpck_require__.ab + ".graphql-schema-linterrc"
+        ).toString()
+    );
     return runner.run(process.stdout, process.stdin, process.stderr, args)
 }
 
